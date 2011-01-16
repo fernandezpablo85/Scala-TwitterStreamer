@@ -6,3 +6,4 @@ target/
 target/**/*
 activemq-data
 activemq-data/**/*
+reports
