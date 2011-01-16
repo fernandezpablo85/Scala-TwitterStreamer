@@ -6,3 +6,7 @@ An extension of @alejandrocrosa's work. Uses OAuth instead of simple auth (depre
 
 * Changed sbt in favor of buildr
 
+* Changed Specs in favor of Scalatest
+
+* Removed Mockito dependencies
+
