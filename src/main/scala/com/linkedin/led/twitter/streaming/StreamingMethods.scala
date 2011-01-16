@@ -1,5 +1,7 @@
 package com.linkedin.led.twitter.streaming
 
+import com.linkedin.led.twitter.Config
+
 import scala.collection.mutable.ArrayBuffer
 import org.apache.commons.httpclient.util.URIUtil
 import org.apache.commons.httpclient.NameValuePair

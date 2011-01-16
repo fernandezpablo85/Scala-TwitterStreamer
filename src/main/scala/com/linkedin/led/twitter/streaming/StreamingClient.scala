@@ -1,5 +1,7 @@
 package com.linkedin.led.twitter.streaming
 
+import com.linkedin.led.twitter.Config
+
 import java.io.IOException
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler
 import org.apache.commons.httpclient.HttpClient
