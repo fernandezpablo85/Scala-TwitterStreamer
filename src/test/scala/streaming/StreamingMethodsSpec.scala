@@ -21,8 +21,8 @@ class StreamingMethodsSpec extends Spec with MustMatchers with BeforeAndAfterEac
   describe ("Streaming Methods") {
 
     it ("should build a Get request with specified params") {
-      val params = new ArrayBuffer[String]
-        params += "count=10"
+      val params = new ArrayBuffer[NameValuePair]
+      params += new NameValuePair("count", "10")
       val request = client.buildGet("www.linkedin.com", params)
       request.getURI must be === new URI("www.linkedin.com?count=10")
     }

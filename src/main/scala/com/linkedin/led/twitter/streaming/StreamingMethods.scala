@@ -28,12 +28,12 @@ trait StreamingMethods {
     val baseUrl = Config.readString("twitterStreamUrl")
 
     // Add the params
-    val params = new ArrayBuffer[String]
+    val params = new ArrayBuffer[NameValuePair]
     if(count > 0) {
-      params += "count="+ count
+      params += new NameValuePair("count", count.toString)
     }
     if(delimited != "") {
-      params += "delimited="+ delimited
+      params += new NameValuePair("delimited", delimited.toString)
     }
 
     val getMethod = buildGet(baseUrl, params)
@@ -88,12 +88,12 @@ trait StreamingMethods {
      val baseUrl = Config.readString("twitterFirehoseUrl")
 
      // Add the params
-     val params = new ArrayBuffer[String]
+     val params = new ArrayBuffer[NameValuePair]
      if(count > 0) {
-       params += "count="+ count
+       params += new NameValuePair("count", count.toString)
      }
      if(delimited != "") {
-       params += "delimited="+ delimited
+       params += new NameValuePair("delimited", delimited.toString)
      }
 
      val getMethod = buildGet(baseUrl, params)
@@ -115,9 +115,9 @@ trait StreamingMethods {
     val baseUrl = Config.readString("twitterLinksUrl")
 
      // Add the params
-     val params = new ArrayBuffer[String]
+     val params = new ArrayBuffer[NameValuePair]
      if(delimited != "") {
-       params += "delimited="+ delimited
+       params += new NameValuePair("delimited", delimited.toString)
      }
 
      val getMethod = buildGet(baseUrl, params)
@@ -138,9 +138,9 @@ trait StreamingMethods {
      val baseUrl = Config.readString("twitterRetweetUrl")
 
       // Add the params
-      val params = new ArrayBuffer[String]
+      val params = new ArrayBuffer[NameValuePair]
       if(delimited != "") {
-        params += "delimited="+ delimited
+        params += new NameValuePair("delimited", delimited.toString)
       }
 
       val getMethod = buildGet(baseUrl, params)
@@ -151,9 +151,9 @@ trait StreamingMethods {
 
   def stream(method: HttpMethod): Unit
 
-  def buildGet(baseUrl: String, params: ArrayBuffer[String]): GetMethod = {
+  def buildGet(baseUrl: String, params: ArrayBuffer[NameValuePair]): GetMethod = {
     val getMethod: GetMethod = new GetMethod(baseUrl)
-    getMethod.setQueryString(URIUtil.encodeQuery(params.mkString("&")))
+    getMethod.setQueryString(params.toArray)
     getMethod
   }
 
