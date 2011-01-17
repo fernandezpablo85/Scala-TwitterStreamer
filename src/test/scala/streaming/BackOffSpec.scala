@@ -8,7 +8,7 @@ class BackOffSpec extends Spec with MustMatchers with BeforeAndAfterEach {
   var backOff: BackOff = null
 
   override def beforeEach() {
-    backOff = BackOff(250, 16000)
+    backOff = BackOff.TCP
   }
 
   describe("Back Off strategy") {

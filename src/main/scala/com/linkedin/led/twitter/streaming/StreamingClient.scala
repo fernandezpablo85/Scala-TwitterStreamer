@@ -29,8 +29,8 @@ class StreamingClient(val username: String, val password: String, streamProcesso
    * TCP errors start at 250 miliseconds and cap at 16 seconds
    * HTTP errors start at 10 seconds and cap at 240 seconds
    */
-  val tcpBackOff  = BackOff(250, 16000)
-  val httpBackOff = BackOff(10000, 240000)
+  val tcpBackOff  = BackOff.TCP
+  val httpBackOff = BackOff.HTTP
 
   /**
    * stream is a recursive method that fetches the stream

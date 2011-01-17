@@ -5,7 +5,7 @@ package com.linkedin.led.twitter.streaming
  *
  * This class implements the waiting strategy when errors arise, and trust me, they will.
  */
-case class BackOff(var backOffTime: Long, capBackOffAt: Long) {
+case class BackOff (var backOffTime: Long, capBackOffAt: Long) {
 
   def backOff = {
     Thread.sleep(backOffTime)
@@ -21,4 +21,9 @@ case class BackOff(var backOffTime: Long, capBackOffAt: Long) {
    * After all errors are resolved (ie successful connection), we reset the sleeping counter.
    */
   def reset() = { backOffTime = 0 }
+}
+
+object BackOff {
+  def TCP = { new BackOff(250, 16000) }
+  def HTTP = { new BackOff(10000, 240000) }
 }
