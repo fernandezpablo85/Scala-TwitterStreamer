@@ -40,7 +40,7 @@ trait StreamingMethods {
     stream(getMethod)
   }
 
-  def sample(count: Int): Unit = sample(0, "")
+  def sample(count: Int): Unit = sample(count, "")
   def sample: Unit = sample(0, "")
 
   /**
