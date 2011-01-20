@@ -56,7 +56,7 @@ trait OAuthStreamingMethods extends StreamingMethods {
       case validToken(token, secret) => 
         new Token(token, secret)
       case _ =>
-        throw new IllegalStateException("token not found in response: " + responseBody)
+        throw new IllegalStateException("token not found in response: '" + responseBody + "'")
     }
   }
 
